@@ -35,7 +35,7 @@ jobs:
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::761200394165:role/GithubActionsOIDCRole
+          role-to-assume: arn:aws:iam::761200394165:role/GithubActions
           aws-region: us-east-1
 
       - name: Run AWS CLI command
