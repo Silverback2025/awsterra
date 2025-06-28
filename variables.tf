@@ -1,8 +1,12 @@
-variable "region" {
-  default = "us-east-1"
+variable "cluster_name" {}
+variable "cluster_version" {}
+variable "vpc_id" {}
+variable "subnet_ids" {
+  type = list(string)
 }
-
-variable "cluster_name" {
-  default = "my-eks-cluster"
+variable "node_groups" {
+  type = any
 }
-
+variable "tags" {
+  type = map(string)
+}
