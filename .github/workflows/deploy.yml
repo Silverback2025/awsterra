@@ -38,5 +38,5 @@ jobs:
       - name: Initialize Terraform
         run: terraform init
 
-      - name: Run AWS CLI command
-        run: aws s3 ls
+      - name: Plan Terraform
+        run: terraform plan
