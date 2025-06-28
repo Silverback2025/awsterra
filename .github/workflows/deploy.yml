@@ -21,6 +21,16 @@ jobs:
           cat token.jwt
         shell: bash
 
+      - name: Save token as artifact (for debugging)
+        run: echo "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" > token.jwt
+
+      - name: Upload token for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: oidc-token
+          path: token.jwt
+
+
 
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v4
