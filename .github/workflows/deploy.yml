@@ -29,6 +29,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::761200394165:role/githubactions
           aws-region: us-east-1
+      
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.5  # or whichever version you need
+
+      - name: Initialize Terraform
+        run: terraform init
 
       - name: Run AWS CLI command
         run: aws s3 ls
