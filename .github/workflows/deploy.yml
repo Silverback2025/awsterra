@@ -4,8 +4,8 @@ on:
   workflow_dispatch
 
 permissions:
-  id-token: write   # Required for OIDC
-  contents: read    # Required for checkout
+  id-token: write    # Required for OIDC
+  contents: read     # Required for checkout
 
 jobs:
   deploy:
@@ -15,27 +15,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print OIDC token (for debugging only!)
-        run: |
-          echo $ACTIONS_ID_TOKEN_REQUEST_TOKEN > token.jwt
-          cat token.jwt
-        shell: bash
-
-      - name: Save token as artifact (for debugging)
+      - name: Upload OIDC token for debugging (optional)
         run: echo "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" > token.jwt
 
-      - name: Upload token for inspection
+      - name: Upload token as artifact (optional)
         uses: actions/upload-artifact@v4
         with:
           name: oidc-token
           path: token.jwt
 
-
-
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::761200394165:role/GithubActions
+          role-to-assume: arn:aws:iam::761200394165:role/githubactions
           aws-region: us-east-1
 
       - name: Run AWS CLI command
