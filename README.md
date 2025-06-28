@@ -7,6 +7,9 @@ Before using this Terraform configuration, ensure the following prerequisites ar
 * [Terraform v1.4+](https://developer.hashicorp.com/terraform/downloads) installed
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) configured:
 
+Install aws cli from here:
+https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi
+
   ```bash
   aws configure
   ```
